@@ -27,6 +27,8 @@ module.exports =  {
         browser: true
     },
     "ignorePatterns": [
-        "node_modules/"
+        "node_modules/",
+        "src/serviceWorker.ts",
+        "**/*.test.tsx"
     ],
 };
