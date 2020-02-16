@@ -7,7 +7,7 @@ const ScreenContainer = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1314px;
+    max-width: 1350px;
 `;
 
 export default function ProductsScreen(): JSX.Element {

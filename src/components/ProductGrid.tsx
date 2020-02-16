@@ -12,8 +12,12 @@ const ProductGridContainer = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 77vw;
+    width: 80vw;
     padding: 15px 0;
+    @media only screen and (max-width: 1315px) {
+        width: 100vw;
+        justify-content: space-evenly;
+    }
 `;
 
 const ProductContainer = styled.div`
@@ -22,6 +26,9 @@ const ProductContainer = styled.div`
     width: 300px;
     height: 500px;
     margin-left: 25px;
+    @media only screen and (max-width: 1315px) {
+        margin: 0;
+    }
 `;
 
 interface IProductGridReduxProps {

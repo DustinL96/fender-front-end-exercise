@@ -4,12 +4,23 @@ import React from "react";
 import styled from "styled-components";
 import { addProductSeries, addProductType } from "../store/products/productActions";
 import { connect } from "react-redux";
+import IState from "../store/state";
+
+interface IFilterContainer {
+    visibility: string;
+    width: string | number;
+}
 
 const FilterContainer = styled.div`
-    width: 23vw;
+    width: 20vw;
     padding: 15px 1vw;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 1315px) {
+        visibility: ${(props: IFilterContainer): string => props.visibility};
+        width: ${(props: IFilterContainer): string | number => props.width};
+        padding: 0;
+    }
 `;
 
 const Title = styled(Typography)`
@@ -20,6 +31,7 @@ const Title = styled(Typography)`
 
 const FilterOption = styled(FormControlLabel)`
     && {
+        margin-left: 5px;
         .MuiTypography-body1 {
             overflow: hidden;
             white-space: nowrap;
@@ -28,15 +40,26 @@ const FilterOption = styled(FormControlLabel)`
     }
 `;
 
+interface IProductFilterOwnProps {
+    drawer?: boolean;
+}
+
+interface IProductFilterReduxProps {
+    selectedProductSeries: string[];
+    selectedProductTypes: string[];
+}
+
 interface IProductFilterDispatchProps {
     addProductSeries: (series: string, toggle: boolean) => void;
     addProductType: (type: string, toggle: boolean) => void;
 }
 
-function ProductFilter(props: IProductFilterDispatchProps): JSX.Element {
+type TProductFilterAllProps = IProductFilterOwnProps & IProductFilterReduxProps & IProductFilterDispatchProps;
+
+function ProductFilter(props: TProductFilterAllProps): JSX.Element {
     return (
-        <FilterContainer>
-            <Title>Filters</Title>
+        <FilterContainer visibility={props.drawer ? "visible" : "collapse"} width={props.drawer ? "auto" : 0}>
+            <Typography>Filters</Typography>
             <Divider />
             <Typography variant="subtitle1">Product Series</Typography>
             <Divider />
@@ -46,7 +69,10 @@ function ProductFilter(props: IProductFilterDispatchProps): JSX.Element {
                     <FilterOption
                         key={index + series}
                         control={
-                            <Checkbox onChange={(event, checked): void => props.addProductSeries(series, checked)} />
+                            <Checkbox
+                                checked={props.selectedProductSeries.indexOf(series) !== -1}
+                                onChange={(event, checked): void => props.addProductSeries(series, checked)}
+                            />
                         }
                         label={series + " (" + ProductManager.getProductSeries()[series].length + ")"}
                     />
@@ -58,17 +84,26 @@ function ProductFilter(props: IProductFilterDispatchProps): JSX.Element {
                 .map((type, index) => (
                     <FilterOption
                         key={index + type}
-                        control={<Checkbox onChange={(event, checked): void => props.addProductType(type, checked)} />}
+                        control={
+                            <Checkbox
+                                checked={props.selectedProductTypes.indexOf(type) !== -1}
+                                onChange={(event, checked): void => props.addProductType(type, checked)}
+                            />
+                        }
                         label={type + " (" + ProductManager.getProductTypes()[type].length + ")"}
                     />
                 ))}
         </FilterContainer>
     );
 }
+const mapStateToProps = ({ product }: IState): IProductFilterReduxProps => ({
+    selectedProductSeries: product.selectedProductSeries,
+    selectedProductTypes: product.selectedProductTypes,
+});
 
 const mapDispatchToProps = {
     addProductSeries,
     addProductType,
 };
 
-export default connect(null, mapDispatchToProps)(ProductFilter);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductFilter);
