@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Colors } from "../defs/Colors";
-import { Drawer, IconButton, Typography } from "@material-ui/core";
+import { Drawer, IconButton } from "@material-ui/core";
 import { Close, Menu } from "@material-ui/icons";
 import ProductFilter from "./ProductFilter";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import { PRODUCTS } from "../defs/routerPaths";
 import { IProduct } from "../defs/Product";
 import IState from "../store/state";
 import { connect } from "react-redux";
+import FenderLogo from "../resources/FenderLogo.svg";
 
 const HeaderContainer = styled.div`
     height: 60px;
@@ -49,10 +50,6 @@ const TextLink = styled(Link)`
     }
 `;
 
-const HeaderText = styled(Typography)`
-    color: ${Colors.primary};
-`;
-
 interface IHeaderReduxProps {
     selectedProduct: IProduct | null;
 }
@@ -63,7 +60,7 @@ function Header(props: IHeaderReduxProps): JSX.Element {
     return (
         <HeaderContainer>
             <TextLink to={PRODUCTS}>
-                <HeaderText variant="h6">Dustin&apos;s Guitars</HeaderText>
+                <img width={150} src={FenderLogo} alt="Fender" />
             </TextLink>
             {props.selectedProduct === null && (
                 <Icon onClick={(): void => setIsFilterDrawerOpen(true)}>
