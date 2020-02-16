@@ -2,7 +2,7 @@ import { Checkbox, Divider, FormControlLabel, Typography } from "@material-ui/co
 import { ProductManager } from "../managers/ProductManager";
 import React from "react";
 import styled from "styled-components";
-import { addProductSeries, addProductType } from "../store/products/productActions";
+import { toggleProductSeries, toggleProductType } from "../store/products/productActions";
 import { connect } from "react-redux";
 import IState from "../store/state";
 
@@ -50,8 +50,8 @@ interface IProductFilterReduxProps {
 }
 
 interface IProductFilterDispatchProps {
-    addProductSeries: (series: string, toggle: boolean) => void;
-    addProductType: (type: string, toggle: boolean) => void;
+    toggleProductSeries: (series: string, toggle: boolean) => void;
+    toggleProductType: (type: string, toggle: boolean) => void;
 }
 
 type TProductFilterAllProps = IProductFilterOwnProps & IProductFilterReduxProps & IProductFilterDispatchProps;
@@ -71,7 +71,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
                         control={
                             <Checkbox
                                 checked={props.selectedProductSeries.indexOf(series) !== -1}
-                                onChange={(event, checked): void => props.addProductSeries(series, checked)}
+                                onChange={(event, checked): void => props.toggleProductSeries(series, checked)}
                             />
                         }
                         label={series + " (" + ProductManager.getProductSeries()[series].length + ")"}
@@ -87,7 +87,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
                         control={
                             <Checkbox
                                 checked={props.selectedProductTypes.indexOf(type) !== -1}
-                                onChange={(event, checked): void => props.addProductType(type, checked)}
+                                onChange={(event, checked): void => props.toggleProductType(type, checked)}
                             />
                         }
                         label={type + " (" + ProductManager.getProductTypes()[type].length + ")"}
@@ -102,8 +102,8 @@ const mapStateToProps = ({ product }: IState): IProductFilterReduxProps => ({
 });
 
 const mapDispatchToProps = {
-    addProductSeries,
-    addProductType,
+    toggleProductSeries,
+    toggleProductType,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductFilter);
