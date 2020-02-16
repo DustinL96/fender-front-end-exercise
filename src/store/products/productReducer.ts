@@ -1,9 +1,15 @@
-import { TOGGLE_PRODUCT_SERIES, TOGGLE_PRODUCT_TYPE, TGenericProductsAction } from "./productTypes";
+import {
+    SET_SELECTED_PRODUCT,
+    TGenericProductsAction,
+    TOGGLE_PRODUCT_SERIES,
+    TOGGLE_PRODUCT_TYPE,
+} from "./productTypes";
 import { IProductState } from "../state";
 
 const DEFAULT_PRODUCT_STORE: IProductState = {
     selectedProductSeries: [],
     selectedProductTypes: [],
+    selectedProduct: null,
 };
 
 function productReducer(state = DEFAULT_PRODUCT_STORE, action: TGenericProductsAction): IProductState {
@@ -21,6 +27,7 @@ function productReducer(state = DEFAULT_PRODUCT_STORE, action: TGenericProductsA
                 ],
             };
         }
+
         case TOGGLE_PRODUCT_SERIES: {
             if (action.toggle) {
                 return { ...state, selectedProductSeries: [...state.selectedProductSeries, action.productSeries] };
@@ -34,6 +41,11 @@ function productReducer(state = DEFAULT_PRODUCT_STORE, action: TGenericProductsA
                 ],
             };
         }
+
+        case SET_SELECTED_PRODUCT: {
+            return { ...state, selectedProduct: action.product };
+        }
+
         default:
             return state;
     }
