@@ -6,6 +6,9 @@ import { Close, Menu } from "@material-ui/icons";
 import ProductFilter from "./ProductFilter";
 import { Link } from "react-router-dom";
 import { PRODUCTS } from "../defs/routerPaths";
+import { IProduct } from "../defs/Product";
+import IState from "../store/state";
+import { connect } from "react-redux";
 
 const HeaderContainer = styled.div`
     height: 60px;
@@ -21,6 +24,7 @@ const HeaderContainer = styled.div`
 const Icon = styled(IconButton)`
     && {
         visibility: collapse;
+        color: red;
 
         @media only screen and (max-width: 1315px) {
             visibility: visible;
@@ -49,7 +53,11 @@ const HeaderText = styled(Typography)`
     color: red;
 `;
 
-export default function Header(): JSX.Element {
+interface IHeaderReduxProps {
+    selectedProduct: IProduct | null;
+}
+
+function Header(props: IHeaderReduxProps): JSX.Element {
     const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false);
 
     return (
@@ -57,9 +65,11 @@ export default function Header(): JSX.Element {
             <TextLink to={PRODUCTS}>
                 <HeaderText variant="h6">Dustin's Guitars</HeaderText>
             </TextLink>
-            <Icon onClick={(): void => setIsFilterDrawerOpen(true)}>
-                <Menu />
-            </Icon>
+            {props.selectedProduct === null && (
+                <Icon onClick={(): void => setIsFilterDrawerOpen(true)}>
+                    <Menu />
+                </Icon>
+            )}
             <Drawer anchor="right" open={isFilterDrawerOpen} onClose={(): void => setIsFilterDrawerOpen(false)}>
                 <ExitButton onClick={(): void => setIsFilterDrawerOpen(false)}>
                     <Close />
@@ -71,3 +81,9 @@ export default function Header(): JSX.Element {
         </HeaderContainer>
     );
 }
+
+const mapStateToProps = ({ product }: IState): IHeaderReduxProps => ({
+    selectedProduct: product.selectedProduct,
+});
+
+export default connect(mapStateToProps)(Header);
