@@ -5,6 +5,8 @@ import { Typography } from "@material-ui/core";
 
 const HeaderContainer = styled.div`
     height: 60px;
+    max-height: 60px;
+    min-height: 60px;
     padding: 0 3vw;
     display: flex;
     align-items: center;
