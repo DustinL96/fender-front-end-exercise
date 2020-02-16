@@ -22,8 +22,8 @@ const BrokenImage = styled(BrokenImageOutlined)`
 `;
 
 interface IProductImage {
-    src: string;
-    alt: string;
+    src: string | undefined;
+    alt: string | undefined;
 }
 
 export default function ProductImage(props: IProductImage): JSX.Element {

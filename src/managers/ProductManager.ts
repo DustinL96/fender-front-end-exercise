@@ -15,7 +15,7 @@ class _ProductManager {
         this.productSeries = {};
         this.productTypes = {};
 
-        documents.map((product) => {
+        documents.map((product: IProduct): void => {
             if (this.productTypes[product.productType] === undefined) {
                 this.productTypes[product.productType] = [product];
             } else {
@@ -32,10 +32,14 @@ class _ProductManager {
 
     getDisplayedProducts = (productSeries: string[] = [], productTypes: string[] = []): IProduct[] => {
         return this.products.filter(
-            (product) =>
+            (product): boolean =>
                 (productSeries.length === 0 || productSeries.indexOf(product.series) !== -1) &&
                 (productTypes.length === 0 || productTypes.indexOf(product.productType) !== -1),
         );
+    };
+
+    getIndividualProduct = (productNo: string): IProduct | undefined => {
+        return this.products.find((product: IProduct): boolean => product.productNo === productNo);
     };
 
     getProductTypes = (): IProductDict => {
