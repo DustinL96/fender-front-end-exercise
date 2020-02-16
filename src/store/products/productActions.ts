@@ -1,4 +1,10 @@
 import {
+    CLEAR_ALL_FILTERS,
+    CLEAR_PRODUCT_SERIES_FILTERS,
+    CLEAR_PRODUCT_TYPE_FILTERS,
+    IClearAllFilters,
+    IClearProductSeriesFilters,
+    IClearProductTypeFilters,
     ISetSelectedProduct,
     IToggleProductSeriesAction,
     IToggleProductTypeAction,
@@ -18,4 +24,14 @@ export function toggleProductType(productType: string, toggle: boolean): IToggle
 
 export function setSelectedProduct(product: IProduct | null): ISetSelectedProduct {
     return { type: SET_SELECTED_PRODUCT, product };
+}
+
+export function clearSeriesFilters(): IClearProductSeriesFilters {
+    return { type: CLEAR_PRODUCT_SERIES_FILTERS };
+}
+export function clearTypesFilters(): IClearProductTypeFilters {
+    return { type: CLEAR_PRODUCT_TYPE_FILTERS };
+}
+export function clearAllFilters(): IClearAllFilters {
+    return { type: CLEAR_ALL_FILTERS };
 }

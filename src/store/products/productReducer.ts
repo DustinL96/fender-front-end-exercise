@@ -1,4 +1,7 @@
 import {
+    CLEAR_ALL_FILTERS,
+    CLEAR_PRODUCT_SERIES_FILTERS,
+    CLEAR_PRODUCT_TYPE_FILTERS,
     SET_SELECTED_PRODUCT,
     TGenericProductsAction,
     TOGGLE_PRODUCT_SERIES,
@@ -44,6 +47,18 @@ function productReducer(state: IProductState = DEFAULT_PRODUCT_STORE, action: TG
 
         case SET_SELECTED_PRODUCT: {
             return { ...state, selectedProduct: action.product };
+        }
+
+        case CLEAR_PRODUCT_SERIES_FILTERS: {
+            return { ...state, selectedProductSeries: [] };
+        }
+
+        case CLEAR_PRODUCT_TYPE_FILTERS: {
+            return { ...state, selectedProductTypes: [] };
+        }
+
+        case CLEAR_ALL_FILTERS: {
+            return { ...state, selectedProductTypes: [], selectedProductSeries: [] };
         }
 
         default:

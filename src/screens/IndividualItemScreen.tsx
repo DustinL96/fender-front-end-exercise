@@ -20,7 +20,7 @@ const ScreenContainer = styled.div`
 const BackButton = styled(IconButton)`
     && {
         margin-top: 15px;
-        margin-left: 15px;
+        margin-left: 1vw;
         align-self: flex-start;
     }
 `;

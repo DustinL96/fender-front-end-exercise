@@ -2,7 +2,13 @@ import { Checkbox, Divider, FormControlLabel, Typography } from "@material-ui/co
 import { ProductManager } from "../managers/ProductManager";
 import React, { ChangeEvent } from "react";
 import styled from "styled-components";
-import { toggleProductSeries, toggleProductType } from "../store/products/productActions";
+import {
+    clearAllFilters,
+    clearSeriesFilters,
+    clearTypesFilters,
+    toggleProductSeries,
+    toggleProductType,
+} from "../store/products/productActions";
 import { connect } from "react-redux";
 import IState from "../store/state";
 import { Colors } from "../defs/Colors";
@@ -24,10 +30,26 @@ const FilterContainer = styled.div`
     }
 `;
 
+const FilterTitleContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+`;
+
 const Title = styled(Typography)`
     && {
         margin-top: 5px;
         margin-left: 5px;
+    }
+`;
+
+const ClickableText = styled(Typography)`
+    && {
+        color: #61dafb;
+        margin-top: 5px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 `;
 
@@ -62,6 +84,9 @@ interface IProductFilterReduxProps {
 interface IProductFilterDispatchProps {
     toggleProductSeries: (series: string, toggle: boolean) => void;
     toggleProductType: (type: string, toggle: boolean) => void;
+    clearSeriesFilters: () => void;
+    clearTypesFilters: () => void;
+    clearAllFilters: () => void;
 }
 
 type TProductFilterAllProps = IProductFilterOwnProps & IProductFilterReduxProps & IProductFilterDispatchProps;
@@ -69,9 +94,19 @@ type TProductFilterAllProps = IProductFilterOwnProps & IProductFilterReduxProps 
 function ProductFilter(props: TProductFilterAllProps): JSX.Element {
     return (
         <FilterContainer visibility={props.drawer ? "visible" : "collapse"} width={props.drawer ? "auto" : 0}>
-            <Typography>Filters</Typography>
+            <FilterTitleContainer>
+                <Title>Filters</Title>
+                {(props.selectedProductTypes.length !== 0 || props.selectedProductSeries.length !== 0) && (
+                    <ClickableText onClick={props.clearAllFilters}>Clear</ClickableText>
+                )}
+            </FilterTitleContainer>
             <Divider />
-            <Title variant="subtitle1">Product Series</Title>
+            <FilterTitleContainer>
+                <Title variant="subtitle1">Product Series</Title>
+                {props.selectedProductSeries.length !== 0 && (
+                    <ClickableText onClick={props.clearSeriesFilters}>Clear</ClickableText>
+                )}
+            </FilterTitleContainer>
             <Divider />
             {Object.keys(ProductManager.getProductSeries())
                 .sort()
@@ -89,7 +124,12 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
                         label={series + " (" + ProductManager.getProductSeries()[series].length + ")"}
                     />
                 ))}
-            <Title variant="subtitle1">Product Type</Title>
+            <FilterTitleContainer>
+                <Title variant="subtitle1">Product Type</Title>
+                {props.selectedProductTypes.length !== 0 && (
+                    <ClickableText onClick={props.clearTypesFilters}>Clear</ClickableText>
+                )}
+            </FilterTitleContainer>
             <Divider />
             {Object.keys(ProductManager.getProductTypes())
                 .sort()
@@ -118,6 +158,9 @@ const mapStateToProps = ({ product }: IState): IProductFilterReduxProps => ({
 const mapDispatchToProps = {
     toggleProductSeries,
     toggleProductType,
+    clearSeriesFilters,
+    clearTypesFilters,
+    clearAllFilters,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductFilter);
