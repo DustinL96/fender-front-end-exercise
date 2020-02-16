@@ -4,6 +4,8 @@ import { Colors } from "../defs/Colors";
 import { Drawer, IconButton, Typography } from "@material-ui/core";
 import { Close, Menu } from "@material-ui/icons";
 import ProductFilter from "./ProductFilter";
+import { Link } from "react-router-dom";
+import { PRODUCTS } from "../defs/routerPaths";
 
 const HeaderContainer = styled.div`
     height: 60px;
@@ -37,6 +39,12 @@ const ProductFilterContainer = styled.div`
     padding: 0 15px;
 `;
 
+const TextLink = styled(Link)`
+    && {
+        text-decoration: none;
+    }
+`;
+
 const HeaderText = styled(Typography)`
     color: red;
 `;
@@ -46,7 +54,9 @@ export default function Header(): JSX.Element {
 
     return (
         <HeaderContainer>
-            <HeaderText variant="h6">Dustin's Guitars</HeaderText>
+            <TextLink to={PRODUCTS}>
+                <HeaderText variant="h6">Dustin's Guitars</HeaderText>
+            </TextLink>
             <Icon onClick={(): void => setIsFilterDrawerOpen(true)}>
                 <Menu />
             </Icon>
