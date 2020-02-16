@@ -12,7 +12,7 @@ const DEFAULT_PRODUCT_STORE: IProductState = {
     selectedProduct: null,
 };
 
-function productReducer(state = DEFAULT_PRODUCT_STORE, action: TGenericProductsAction): IProductState {
+function productReducer(state: IProductState = DEFAULT_PRODUCT_STORE, action: TGenericProductsAction): IProductState {
     switch (action.type) {
         case TOGGLE_PRODUCT_TYPE: {
             if (action.toggle) {

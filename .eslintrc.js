@@ -22,6 +22,9 @@ module.exports =  {
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/typedef": ["error", { "arrowParameter": true, }],
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/class-name-casing": "off",
+        "react/prop-types": "off",
     },
     env: {
         browser: true

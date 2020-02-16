@@ -15,7 +15,7 @@ class _ProductManager {
         this.productSeries = {};
         this.productTypes = {};
 
-        documents.map((product: IProduct): void => {
+        for (const product of documents) {
             if (this.productTypes[product.productType] === undefined) {
                 this.productTypes[product.productType] = [product];
             } else {
@@ -27,28 +27,28 @@ class _ProductManager {
             } else {
                 this.productSeries[product.series].push(product);
             }
-        });
+        }
     }
 
-    getDisplayedProducts = (productSeries: string[] = [], productTypes: string[] = []): IProduct[] => {
+    getDisplayedProducts(productSeries: string[] = [], productTypes: string[] = []): IProduct[] {
         return this.products.filter(
-            (product): boolean =>
+            (product: IProduct): boolean =>
                 (productSeries.length === 0 || productSeries.indexOf(product.series) !== -1) &&
                 (productTypes.length === 0 || productTypes.indexOf(product.productType) !== -1),
         );
-    };
+    }
 
-    getIndividualProduct = (productNo: string): IProduct | undefined => {
+    getIndividualProduct(productNo: string): IProduct | undefined {
         return this.products.find((product: IProduct): boolean => product.productNo === productNo);
-    };
+    }
 
-    getProductTypes = (): IProductDict => {
+    getProductTypes(): IProductDict {
         return this.productTypes;
-    };
+    }
 
-    getProductSeries = (): IProductDict => {
+    getProductSeries(): IProductDict {
         return this.productSeries;
-    };
+    }
 }
 
 const ProductManager = new _ProductManager(documents);

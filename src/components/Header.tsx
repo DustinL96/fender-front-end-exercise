@@ -63,7 +63,7 @@ function Header(props: IHeaderReduxProps): JSX.Element {
     return (
         <HeaderContainer>
             <TextLink to={PRODUCTS}>
-                <HeaderText variant="h6">Dustin's Guitars</HeaderText>
+                <HeaderText variant="h6">Dustin&apos;s Guitars</HeaderText>
             </TextLink>
             {props.selectedProduct === null && (
                 <Icon onClick={(): void => setIsFilterDrawerOpen(true)}>

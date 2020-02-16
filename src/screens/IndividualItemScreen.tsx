@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import styled from "styled-components";
-import { ProductManager } from "../managers/ProductManager";
-import { IProduct } from "../defs/Product";
-import { PRODUCTS } from "../defs/routerPaths";
 import { IconButton } from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import styled from "styled-components";
+import { IProduct } from "../defs/Product";
+import { PRODUCTS } from "../defs/routerPaths";
+import { ProductManager } from "../managers/ProductManager";
 import IndividualProduct from "../components/IndividualProduct";
 import { setSelectedProduct } from "../store/products/productActions";
-import { connect } from "react-redux";
 
 const ScreenContainer = styled.div`
     display: flex;

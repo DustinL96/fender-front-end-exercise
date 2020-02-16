@@ -1,6 +1,6 @@
 import { Checkbox, Divider, FormControlLabel, Typography } from "@material-ui/core";
 import { ProductManager } from "../managers/ProductManager";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 import { toggleProductSeries, toggleProductType } from "../store/products/productActions";
 import { connect } from "react-redux";
@@ -75,13 +75,15 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
             <Divider />
             {Object.keys(ProductManager.getProductSeries())
                 .sort()
-                .map((series, index) => (
+                .map((series: string, index: number) => (
                     <FilterOption
                         key={index + series}
                         control={
                             <FilterCheckbox
                                 checked={props.selectedProductSeries.indexOf(series) !== -1}
-                                onChange={(event, checked): void => props.toggleProductSeries(series, checked)}
+                                onChange={(event: ChangeEvent<HTMLInputElement>, checked: boolean): void =>
+                                    props.toggleProductSeries(series, checked)
+                                }
                             />
                         }
                         label={series + " (" + ProductManager.getProductSeries()[series].length + ")"}
@@ -91,13 +93,15 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
             <Divider />
             {Object.keys(ProductManager.getProductTypes())
                 .sort()
-                .map((type, index) => (
+                .map((type: string, index: number) => (
                     <FilterOption
                         key={index + type}
                         control={
                             <FilterCheckbox
                                 checked={props.selectedProductTypes.indexOf(type) !== -1}
-                                onChange={(event, checked): void => props.toggleProductType(type, checked)}
+                                onChange={(event: ChangeEvent<HTMLInputElement>, checked: boolean): void =>
+                                    props.toggleProductType(type, checked)
+                                }
                             />
                         }
                         label={type + " (" + ProductManager.getProductTypes()[type].length + ")"}
