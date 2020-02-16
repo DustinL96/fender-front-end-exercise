@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
 const Icon = styled(IconButton)`
     && {
         visibility: collapse;
-        color: red;
+        color: ${Colors.primary};
 
         @media only screen and (max-width: 1315px) {
             visibility: visible;
@@ -50,7 +50,7 @@ const TextLink = styled(Link)`
 `;
 
 const HeaderText = styled(Typography)`
-    color: red;
+    color: ${Colors.primary};
 `;
 
 interface IHeaderReduxProps {

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { toggleProductSeries, toggleProductType } from "../store/products/productActions";
 import { connect } from "react-redux";
 import IState from "../store/state";
+import { Colors } from "../defs/Colors";
 
 interface IFilterContainer {
     visibility: string;
@@ -25,7 +26,16 @@ const FilterContainer = styled.div`
 
 const Title = styled(Typography)`
     && {
-        margin-top: 10px;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+`;
+
+const FilterCheckbox = styled(Checkbox)`
+    && {
+        &.MuiCheckbox-colorSecondary.Mui-checked {
+            color: ${Colors.primary};
+        }
     }
 `;
 
@@ -61,7 +71,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
         <FilterContainer visibility={props.drawer ? "visible" : "collapse"} width={props.drawer ? "auto" : 0}>
             <Typography>Filters</Typography>
             <Divider />
-            <Typography variant="subtitle1">Product Series</Typography>
+            <Title variant="subtitle1">Product Series</Title>
             <Divider />
             {Object.keys(ProductManager.getProductSeries())
                 .sort()
@@ -69,7 +79,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
                     <FilterOption
                         key={index + series}
                         control={
-                            <Checkbox
+                            <FilterCheckbox
                                 checked={props.selectedProductSeries.indexOf(series) !== -1}
                                 onChange={(event, checked): void => props.toggleProductSeries(series, checked)}
                             />
@@ -85,7 +95,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
                     <FilterOption
                         key={index + type}
                         control={
-                            <Checkbox
+                            <FilterCheckbox
                                 checked={props.selectedProductTypes.indexOf(type) !== -1}
                                 onChange={(event, checked): void => props.toggleProductType(type, checked)}
                             />
