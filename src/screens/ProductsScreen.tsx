@@ -1,7 +1,20 @@
 import React from "react";
-import { documents } from "../resources/products.json";
+import styled from "styled-components";
+import ProductFilter from "../components/ProductFilter";
+import ProductGrid from "../components/ProductGrid";
+
+const ScreenContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1314px;
+`;
 
 export default function ProductsScreen(): JSX.Element {
-    console.log(documents);
-    return <div>Hello World</div>;
+    return (
+        <ScreenContainer>
+            <ProductFilter />
+            <ProductGrid />
+        </ScreenContainer>
+    );
 }
