@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fender-front-end-test/precache-manifest.095b759e4e58535c26430f1492132e48.js"
+  "/fender-front-end-test/precache-manifest.c56deefaadc6fea4345416844751bdaa.js"
 );
 
 self.addEventListener('message', (event) => {
