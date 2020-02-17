@@ -32,6 +32,6 @@ module.exports =  {
     "ignorePatterns": [
         "node_modules/",
         "src/serviceWorker.ts",
-        "**/*.test.tsx"
+        "**/*.test.ts"
     ],
 };
