@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/fender-front-end-exercise/static/css/main.d1b05096.chunk.css",
-    "main.js": "/fender-front-end-exercise/static/js/main.2c722c48.chunk.js",
-    "main.js.map": "/fender-front-end-exercise/static/js/main.2c722c48.chunk.js.map",
-    "runtime-main.js": "/fender-front-end-exercise/static/js/runtime-main.b585c973.js",
-    "runtime-main.js.map": "/fender-front-end-exercise/static/js/runtime-main.b585c973.js.map",
-    "static/js/2.448cac18.chunk.js": "/fender-front-end-exercise/static/js/2.448cac18.chunk.js",
-    "static/js/2.448cac18.chunk.js.map": "/fender-front-end-exercise/static/js/2.448cac18.chunk.js.map",
-    "index.html": "/fender-front-end-exercise/index.html",
-    "precache-manifest.40c493ce8012dde6b8d11bd34c41f2fa.js": "/fender-front-end-exercise/precache-manifest.40c493ce8012dde6b8d11bd34c41f2fa.js",
-    "service-worker.js": "/fender-front-end-exercise/service-worker.js",
-    "static/css/main.d1b05096.chunk.css.map": "/fender-front-end-exercise/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.448cac18.chunk.js.LICENSE.txt": "/fender-front-end-exercise/static/js/2.448cac18.chunk.js.LICENSE.txt",
-    "static/media/FenderLogo.svg": "/fender-front-end-exercise/static/media/FenderLogo.d12f0c8c.svg"
+    "main.css": "/fender-front-end-test/static/css/main.8ab6f918.chunk.css",
+    "main.js": "/fender-front-end-test/static/js/main.90348648.chunk.js",
+    "main.js.map": "/fender-front-end-test/static/js/main.90348648.chunk.js.map",
+    "runtime-main.js": "/fender-front-end-test/static/js/runtime-main.6ad0f0e5.js",
+    "runtime-main.js.map": "/fender-front-end-test/static/js/runtime-main.6ad0f0e5.js.map",
+    "static/js/2.ee34a39b.chunk.js": "/fender-front-end-test/static/js/2.ee34a39b.chunk.js",
+    "static/js/2.ee34a39b.chunk.js.map": "/fender-front-end-test/static/js/2.ee34a39b.chunk.js.map",
+    "index.html": "/fender-front-end-test/index.html",
+    "precache-manifest.377ddc4eb509b09d61ced1ffd2ca5fc0.js": "/fender-front-end-test/precache-manifest.377ddc4eb509b09d61ced1ffd2ca5fc0.js",
+    "service-worker.js": "/fender-front-end-test/service-worker.js",
+    "static/css/main.8ab6f918.chunk.css.map": "/fender-front-end-test/static/css/main.8ab6f918.chunk.css.map",
+    "static/js/2.ee34a39b.chunk.js.LICENSE.txt": "/fender-front-end-test/static/js/2.ee34a39b.chunk.js.LICENSE.txt",
+    "static/media/FenderLogo.svg": "/fender-front-end-test/static/media/FenderLogo.d12f0c8c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b585c973.js",
-    "static/js/2.448cac18.chunk.js",
-    "static/css/main.d1b05096.chunk.css",
-    "static/js/main.2c722c48.chunk.js"
+    "static/js/runtime-main.6ad0f0e5.js",
+    "static/js/2.ee34a39b.chunk.js",
+    "static/css/main.8ab6f918.chunk.css",
+    "static/js/main.90348648.chunk.js"
   ]
 }
