@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import { INDIVIDUAL_ITEM, PRODUCTS } from "../defs/routerPaths";
 import ProductsScreen from "../screens/ProductsScreen";
 import IndividualItemScreen from "../screens/IndividualItemScreen";
@@ -15,7 +15,7 @@ const PageContainer = styled.div`
 `;
 function Router(): JSX.Element {
     return (
-        <BrowserRouter>
+        <HashRouter basename="#">
             <Header />
             <PageContainer>
                 <Switch>
@@ -25,7 +25,7 @@ function Router(): JSX.Element {
                 </Switch>
             </PageContainer>
             <Footer />
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
