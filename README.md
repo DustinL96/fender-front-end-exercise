@@ -1,12 +1,15 @@
 ## Fender Front End Test
 Author: Dustin Liu
 
+Live version: [https://dustinl96.github.io/fender-front-end-test/](https://dustinl96.github.io/fender-front-end-test/)
+
 ## Other Features For Production
 
 - Add more filters: Brands, Colors, Product Sub Type
 - Display multiple images for Individual Item View
 - Add tests for Product Manager
 - Include search bar to find specific product
+- Add version numberings
 
 
 ## Available Scripts
