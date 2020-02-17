@@ -50,7 +50,7 @@ function IndividualItemScreen(props: TIndividualItemScreenAllProps): JSX.Element
             setNextScreen({ screenName: PRODUCTS, push: false });
         }
     };
-    useEffect(getSelectedProduct, []);
+    useEffect(getSelectedProduct, [props.match.params.productNo]);
 
     if (nextScreen !== null) {
         return <Redirect push={nextScreen.push} to={nextScreen.screenName} />;
