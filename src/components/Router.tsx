@@ -15,7 +15,7 @@ const PageContainer = styled.div`
 `;
 function Router(): JSX.Element {
     return (
-        <HashRouter basename="#">
+        <HashRouter basename="/">
             <Header />
             <PageContainer>
                 <Switch>
