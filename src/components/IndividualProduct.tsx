@@ -11,6 +11,7 @@ const ProductContainer = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 1vw;
+    margin-bottom: 20px;
 `;
 
 const ProductTitle = styled(Typography)`
