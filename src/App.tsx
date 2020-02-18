@@ -4,8 +4,6 @@ import "./App.css";
 import Router from "./components/Router";
 
 const ScreenContainer = styled.div`
-    display: flex;
-    flex-direction: column;
     height: 100vh;
 `;
 

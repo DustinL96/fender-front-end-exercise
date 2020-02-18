@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import styled from "styled-components";
 
 const PageContainer = styled.div`
-    flex-grow: 1;
+    min-height: calc(100% - 111px);
     width: 100%;
     display: flex;
     justify-content: center;
