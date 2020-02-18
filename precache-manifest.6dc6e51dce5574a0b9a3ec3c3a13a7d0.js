@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb37c524251faf4a37cf93d83883de4c",
+    "revision": "48cec695505c4bf164e4ed88d08afa5d",
     "url": "/fender-front-end-test/index.html"
   },
   {
-    "revision": "bba4d1f131428d705734",
-    "url": "/fender-front-end-test/static/css/main.8ab6f918.chunk.css"
+    "revision": "0fd5b2877bcccb4b48d0",
+    "url": "/fender-front-end-test/static/css/main.ae499793.chunk.css"
   },
   {
     "revision": "42057f8d4ee8ade2f252",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fender-front-end-test/static/js/2.b2462332.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bba4d1f131428d705734",
-    "url": "/fender-front-end-test/static/js/main.7b4222d1.chunk.js"
+    "revision": "0fd5b2877bcccb4b48d0",
+    "url": "/fender-front-end-test/static/js/main.0c92459b.chunk.js"
   },
   {
     "revision": "7ca2589c09e131fd9de5",
