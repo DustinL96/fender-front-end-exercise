@@ -97,7 +97,7 @@ function ProductFilter(props: TProductFilterAllProps): JSX.Element {
             <FilterTitleContainer>
                 <Title>Filters</Title>
                 {(props.selectedProductTypes.length !== 0 || props.selectedProductSeries.length !== 0) && (
-                    <ClickableText onClick={props.clearAllFilters}>Clear</ClickableText>
+                    <ClickableText onClick={props.clearAllFilters}>Clear All</ClickableText>
                 )}
             </FilterTitleContainer>
             <Divider />
